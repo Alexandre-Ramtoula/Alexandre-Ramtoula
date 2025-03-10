@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Personal GitHub Page of Alexandre Ramtoula" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alexandre Ramtoula</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Global Styles */
+    :root {
+      --main-color: #51e2f5; /* Tropical Wave Blue */
+--secondary-color: #41b3ff; /* Foam Light Blue */
+
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a {
+      color: var(--main-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+    }
+    header .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .profile-pic {
+      width: 200px;
+      height: 150px;
+      border-radius: 0;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid var(--main-color);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    header .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #bdbdbd;
+    }
+
+    /* About Me Section */
+    #about {
+      margin-bottom: 2rem;
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    #about h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--main-color);
+    }
+    #about p + p {
+      margin-top: 1rem;
+    }
+
+    /* Horizontal Tech Stack Section */
+    #tech-stack {
+      margin-bottom: 2rem;
+    }
+    #tech-stack h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--main-color);
+      text-align: center;
+    }
+    .logo-container {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background-color: #2a2a2a;
+      border-radius: 8px;
+    }
+    .logo-container img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .logo-container img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Skills Section */
+    #skills {
+      margin-bottom: 2rem;
+    }
+    #skills h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--main-color);
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .skill-card {
+      display: flex;
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 280px;
+      width: 100%;
+    }
+    .skill-card .icon-container {
+      flex: 0 0 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333333; 
+      padding: 1rem;
+    }
+    .skill-card .icon-container img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+    .skill-card .skill-details {
+      flex: 1;
+      padding: 1rem;
+    }
+    .skill-card .skill-details h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary-color);
+    }
+    .skill-card .skill-details p {
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+
+    /* Orca ASCII Art */
+    #orca-art {
+      display: none;
+      background-color: #333;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-family: monospace;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    /* Experience Section */
+    #experience {
+      margin-bottom: 2rem;
+    }
+    #experience h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--main-color);
+    }
+    .exp-item {
+      background-color: #2a2a2a;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .exp-item h3 {
+      margin-bottom: 0.25rem;
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+    }
+    .exp-item .meta {
+      font-size: 0.9rem;
+      color: #9e9e9e;
+      margin-bottom: 0.5rem;
+    }
+    .exp-item p {
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+
+    /* Projects Section */
+    #projects {
+      margin-bottom: 2rem;
+    }
+    #projects h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--main-color);
+    }
+    .project-item {
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .project-item img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border: 2px solid #555;
+      border-radius: 4px;
+    }
+    .project-details {
+      flex: 1;
+      color: #bbb;
+    }
+    .project-details h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #757575;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .skill-card {
+        flex: 1 1 100%;
+      }
+      .project-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .project-item img {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="profile-wrapper">
+        <img 
+          class="profile-pic" 
+          src="images/profile.png" 
+          alt="Profile Picture"
+        />
+        <h1>Alexandre Ramtoula
+        </h1>
+      </div>
+      <p>
+        <a href="mailto:alexandre.ramtoula@gmail.com">alexandre.ramtoula@gmail.com</a> |
+        <a href="https://www.linkedin.com/in/alexandre-ramtoula" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </header>
+
+  <!-- About Me Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About me</h2>
+      <p>
+        Hey there!👋 I'm Alex(andre), I currently work at Mind in a Box building advanced analytics solutions and figuring out how to deploy all the smart AI stuff ~
+      </p><p>
+        Originally from Nantes, France, I grew up moving around with some childhood years (around 3-4 years each) in the US and Vanuatu. I've been chilling in Canada for the last decade, almost accustomed to the winters!
+      </p><p>
+        Outside of coding I enjoy chess, basketball, mangas, boardgames, animals facts and making art.
+      </p><p>
+        And here's the formal part; I have a <strong>B.Eng. in Software Engineering - AI & Data Science concentration</strong> from Polytechnique Montréal (2018–2022), including the equivalent of one year of master’s level engineering studies and an interuniversity exchange with McGill & Mila.
+      </p><p>
+        This is the start of my developer profile. I’ll plan to add some projects and experiments here, for now check out below for more info about what I'm currently working with. 🚀
+      </p>
+    </div>
+  </section>
+
+  <!-- Horizontal Tech Stack Logos -->
+  <section id="tech-stack">
+    <div class="container">
+      <h2>Tech stack</h2>
+      <div class="logo-container">
+        <img src="images/airflow-logo.png" alt="Airflow" />
+        <img src="images/c++-logo.png" alt="C++" />
+        <img src="images/docker-logo.png" alt="Docker" />
+        <img src="images/kubeflow-logo.png" alt="Kubeflow" />
+        <img src="images/mlflow-logo.png" alt="MLFlow" />
+        <img src="images/opensearch-logo.png" alt="OpenSearch" />
+        <img src="images/plotly-logo.png" alt="Plotly" />
+        <img src="images/python-logo.png" alt="Python" />
+        <img src="images/tensorflow-logo.png" alt="TensorFlow" />
+        <img src="images/typescript-logo.png" alt="TypeScript" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>My Tech Toolkit</h2>
+      <div class="skills-list">
+
+        <!-- Skill Card 1 -->
+        <div class="skill-card">
+          <div class="icon-container">
+            <img src="images/ai-icon.png" alt="AI icon" />
+          </div>
+          <div class="skill-details" style="background-color:#383838;">
+            <h3>Data & ML</h3>
+            <p>
+              Python (Pandas, scikit-learn, Plotly, TFX, MLflow), Kubeflow (AutoML, Katib, KServe),
+              OpenSearch/Elasticsearch, SQL/NoSQL, Dataiku
+            </p>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="icon-container">
+            <img src="images/ops-icon.png" alt="Ops icon" />
+          </div>
+          <div class="skill-details" style="background-color:#383838;">
+            <h3>MLOps & DevOps</h3>
+            <p>
+              CI/CD pipelines, Docker, Kubernetes, Git, Jenkins, ML pipeline monitoring
+            </p>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="icon-container">
+            <img src="images/dev-icon.png" alt="Dev icon" />
+          </div>
+          <div class="skill-details" style="background-color:#383838;">
+            <h3>Frontend / Backend</h3>
+            <p>
+              Python Dash, TypeScript (Angular, Node.js), REST APIs, WebSockets,
+              plus some C++ & Java
+            </p>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="icon-container">
+            <img src="images/otherskills-icon.png" alt="Other skills icon" />
+          </div>
+          <div class="skill-details" style="background-color:#383838;">
+            <h3>Other Strengths</h3>
+            <p>
+              Power BI, Git, Technical documentation, Scrum methodologies, Sustainability & Digital Transformation Use-case Analysis, 
+              Event Organization, Team motivation, some Linux, 
+              <span id="orca-trigger" style="cursor: pointer; color:#81ccfa;">Orcinus orca Expert</span>
+            </p>
+          <div id="orca-art">
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⢀⣀⣄⡀⠰⠴⣶⣶⣤⣤⡀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⡇⠀⢀⣤⣶⣻⣾⣿⣴⣴⣾⣿⣿⣿⣿⣿⣿⡆
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣥⣾⠿⢿⣿⣽⣾⣿⣿⣿⣿⣿⣿⣿⠿⢿⡿⣧
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⠟⠉⠀⠀⠀⣸⣿⣿⣿⣿⡿⠟⠛⠋⠉⠐⠊⠡⢹⢚
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣤⣤⡴⠂⠐⠒⢨⣿⣿⣿⣿⣿⣿⣤⣆⣤⣠⣴⣾⣿⣷⡿⠋⠁⠀⠀⠀⠀⠀⠐⣁⠎⠀⡘
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⣠⣤⣶⣾⣿⣿⣿⣿⣿⣆⡀⡀⣀⣨⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⡐⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠄⠀⠄⠀⠀⠀⠀⠀⠂⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⡶⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠂⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣵⣿⣿⣅⠀⠀⠀⠀⢈⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠂⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣶⣦⣌⠁⠀⠉⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠜⠁⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⣀⣀⣤⢤⢤⡴⢶⣾⡿⠿⣛⠩⠀⠉⠉⠙⠛⠻⠿⢏⡀⠀⠀⠀⠙⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢈⡷⠀⠀⠀⠀⠀⠀⠀⠀⣠⣷⣿⡀⠀⠀⠀⠀⠀⠀⠀
+            ⢠⠖⠋⠉⠀⢀⠀⠂⣌⢇⠀⣰⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⣄⠀⡀⠀⠀⢀⣽⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⣐⠰⠂⠀⠀⠀⠀⡀⣠⣴⣾⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+            ⠛⠓⠒⠲⢤⣀⣐⣤⡞⣸⢊⠥⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠀⢀⣤⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⢄⣀⠀⠠⠤⠴⠂⠈⠁⢰⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⢿⠃⠀⠀⠸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢖⣦⣀⢻⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠾⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            
+            
+            (taken from https://emojicombos.com/killer-whale)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2>Where I've been</h2>
+
+      <div class="exp-item">
+        <h3>Data Science Developer @ Mind in a Box</h3>
+        <div class="meta">Nov 2023 – Present</div>
+        <p>
+          building AutoML pipelines on Kubeflow
+        </p><p>
+          + real-time dashboards on OpenSearch/ElasticSearch
+        </p><p>
+          + taking responsabities in MLOps/DevOps processes 
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <h3>Risk Advanced Analytics Internship @ BNP Paribas</h3>
+        <div class="meta">May 2023 – Aug 2023</div>
+        <p>
+          developed quantitative models (e.g., PiT LGD)
+        </p><p>
+          + built a Plotly Dash application as a model analysis toolbox
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <h3>Data Science Internship @ Merck</h3>
+        <div class="meta">May 2022 – Aug 2022</div>
+        <p>
+          created a time-series predictive tool for pharmaceutical demand 
+        </p><p>
+          + managed BI/data quality initiatives
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <h3>Enterprise Data Management Internship @ BNP Paribas</h3>
+        <div class="meta">May 2021 – Aug 2021</div>
+        <p>
+          deployed a new DB system for HR 
+        </p><p>
+          + performed data quality checks with AI techniques 
+        </p><p>
+          + key resource for Americas-wide risk assessment reporting
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <h3>Business Intelligence Internship @ Société Générale CIB</h3>
+        <div class="meta">Jun 2020 – Aug 2020</div>
+        <p>
+          worked in the BI Center for the Americas creating dashboards (KPIs, data scraping, etc.)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+
+      <div class="project-item">
+        <!-- <img src="images/project1.jpg" alt="Project screenshot" /> -->
+        <div class="project-details">
+          <h3>Top secret project</h3>
+          <p>
+            Still feeling a bit shy about sharing my side projects, but I'm currently working on some advanced analytics solutions related to sustainability and climate risk in my spare time. I'll have something cool to share ~ stay tuned!
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      <strong>© 2025 Alexandre Ramtoula</strong> |
+      <a href="mailto:alexandre.ramtoula@gmail.com">alexandre.ramtoula@gmail.com</a> |
+      <a href="https://www.linkedin.com/in/alexandre-ramtoula" target="_blank">LinkedIn</a>
+    </p>
+    <p>
+      Let’s connect if you’re into building a more sustainable future through advanced analytics!
+    </p>
+  </footer>
+
+  <script>
+    const orcaTrigger = document.querySelector(".skill-details p #orca-trigger");
+    const orcaArt = document.getElementById("orca-art");
+  
+    orcaArt.style.display = "none";
+  
+    orcaTrigger.addEventListener("click", () => {
+      orcaArt.style.display = orcaArt.style.display === "none" ? "block" : "none";
+    });
+  </script>
+  
+</body>
+</html>
