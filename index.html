@@ -48,47 +48,58 @@
 
     /* Header Section */
     header {
-      text-align: center;
-      padding: 3rem 1rem;
-      position: relative;
-    }
-    header .profile-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .profile-pic {
-      width: 200px;
-      height: 150px;
-      border-radius: 0;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid var(--main-color);
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    header .tagline {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #bdbdbd;
+      padding: 2rem 1rem;
     }
 
-    /* About Me Section */
+    .profile-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 140px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 2px solid var(--main-color);
+      margin-bottom: 0;
+    }
+
+    .profile-info {
+      flex: 1;
+      margin-left: 2rem;
+      text-align: left;
+      min-width: 250px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #bdbdbd;
+      margin-bottom: 0.5rem;
+    }
+
+    header p, header a {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
     #about {
-      margin-bottom: 2rem;
       background-color: #2a2a2a;
       border-radius: 8px;
-      padding: 2rem;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      margin-bottom: 2rem;
     }
-    #about h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      color: var(--main-color);
-    }
+
     #about p + p {
-      margin-top: 1rem;
+      margin-top: 0.8rem;
     }
 
     /* Horizontal Tech Stack Section */
@@ -96,7 +107,7 @@
       margin-bottom: 2rem;
     }
     #tech-stack h2 {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       margin-bottom: 1rem;
       color: var(--main-color);
       text-align: center;
@@ -133,9 +144,10 @@
     /* Skills Section */
     #skills {
       margin-bottom: 2rem;
+      font-size: 0.8rem;
     }
     #skills h2 {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
       color: var(--main-color);
     }
@@ -170,12 +182,12 @@
       padding: 1rem;
     }
     .skill-card .skill-details h3 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-bottom: 0.5rem;
       color: var(--secondary-color);
     }
     .skill-card .skill-details p {
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       color: #bbb;
     }
 
@@ -183,7 +195,7 @@
       margin-bottom: -1rem; 
     }
 
-    /* Orca ASCII Art */
+    /* Orca art */
     #orca-art {
       display: none;
       background-color: #333;
@@ -191,27 +203,26 @@
       padding: 1rem;
       margin-top: 1rem;
       font-family: monospace;
-      white-space: nowrap;
-      overflow-x: auto;
-      overflow-y: hidden;
+      overflow-x: auto; 
+      overflow-y: hidden; 
+      max-width: 100%;
     }
 
-    /* Orca ASCII Art pre element */
     #orca-art pre {
-      display: inline-block;
       margin: 0;
-      padding: 0;
       line-height: 0.5;
       font-size: 1rem;
-      text-align: center;
+      display: inline-block;
+      white-space: pre;
     }
 
     /* Experience Section */
     #experience {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
     }
     #experience h2 {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
       color: var(--main-color);
     }
@@ -223,25 +234,26 @@
     }
     .exp-item h3 {
       margin-bottom: 0.25rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: var(--secondary-color);
     }
     .exp-item .meta {
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       color: #9e9e9e;
       margin-bottom: 0.5rem;
     }
     .exp-item p {
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       color: #bbb;
     }
 
     /* Projects Section */
     #projects {
       margin-bottom: 2rem;
+      font-size: 0.8rem;
     }
     #projects h2 {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
       color: var(--main-color);
     }
@@ -268,7 +280,7 @@
     }
     .project-details h3 {
       margin-bottom: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: var(--secondary-color);
     }
 
@@ -276,7 +288,7 @@
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       color: #757575;
     }
 
@@ -303,33 +315,35 @@
   <header>
     <div class="container">
       <div class="profile-wrapper">
-        <img 
-          class="profile-pic" 
-          src="images/profile.png" 
-          alt="Profile Picture"
-        />
-        <h1>Alexandre Ramtoula
-        </h1>
+        <img class="profile-pic" src="images/profile.png" alt="Profile Picture"/>
+        <div class="profile-info">
+          <h1>Alexandre Ramtoula</h1>
+          <p class="tagline">
+            Data Science Developer at <a href="https://mindinabox.ai/" target="_blank"><strong> Mind in a Box</strong></a>.<br> 
+            Passionate about advanced analytics x sustainability.
+          </p>
+          <p>
+            <a href="mailto:alexandre.ramtoula@gmail.com">alexandre.ramtoula@gmail.com</a> |
+            <a href="https://www.linkedin.com/in/alexandre-ramtoula" target="_blank">LinkedIn</a>
+          </p>
+        </div>
       </div>
-      <p>
-        <a href="mailto:alexandre.ramtoula@gmail.com">alexandre.ramtoula@gmail.com</a> |
-        <a href="https://www.linkedin.com/in/alexandre-ramtoula" target="_blank">LinkedIn</a>
-      </p>
     </div>
   </header>
+
 
   <!-- About Me Section -->
   <section id="about">
     <div class="container">
       <h2>About me</h2>
       <p>
-        Hey there!👋 I'm Alex(andre), I currently work at Mind in a Box building advanced analytics solutions and figuring out how to deploy all the smart AI stuff ~
+        Hey there👋 I'm Alex(andre), I currently work at Mind in a Box building advanced analytics solutions and figuring out how to deploy all the smart AI stuff ~
       </p><p>
-        Originally from Nantes, France, I grew up moving around with some childhood years (around 3-4 years each) in the US and Vanuatu. I've been chilling in Canada for the last decade, almost accustomed to the winters!
+        Originally from Nantes, France, I grew up moving around with some childhood years (around 3-4 years each) in the US and Vanuatu. I've been chilling in Canada for the last decade.
       </p><p>
         Outside of coding I enjoy chess, basketball, mangas, boardgames, animals facts and making art.
       </p><p>
-        I have a <strong>B.Eng. in Software Engineering - AI & Data Science concentration</strong> from Polytechnique Montréal (2018–2022), including the equivalent of one year of master’s level engineering studies and an interuniversity exchange with McGill & Mila.
+        I have a <strong>B.Eng. in Software Engineering - AI & Data Science concentration</strong> from Polytechnique Montréal with the equivalent of one year of master’s level engineering studies and an interuniversity exchange with McGill & Mila.
       </p><p>
         This is the start of my developer profile. I’ll plan to add some projects and experiments here, for now check out below for more info about what I'm currently working with. 🚀
       </p>
@@ -406,11 +420,11 @@
             <p>
               Power BI, Technical documentation, Scrum methodologies, Sustainability & Digital Transformation use-case analysis, 
               Event Organization, Team motivation, some Linux, 
-              <span id="orca-trigger" style="cursor: pointer; color:var(--main-color);">Orcinus orca Expert</span>
+              <span id="orca-trigger" style="cursor: pointer; color:var(--main-color);">Orcinus orca expert</span>
             </p>
           <div id="orca-art">
             <pre>
-              <div style="color: #5addf1">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀</div>
+              <div style="color: #5addf1">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⣸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀</div>
               <div style="color: #56d4ea">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   </div>
               <div style="color: #52d1eb">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⢀⣀⣠⣤⣶⣶⣶⣶⣤⣤⡀⠀</div>
               <div style="color: #4ac6e5">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⡇⠀⢀⣤⣶⣻⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆</div>
